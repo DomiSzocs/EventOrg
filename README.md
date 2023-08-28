@@ -1,1 +1,1 @@
-# Webprogramozás laborfeladatok
+# EventOrg
