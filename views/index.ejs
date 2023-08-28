@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Event browser</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <div>
+    <p>
+      <input type='checkbox' id='filter'>
+      Show my events only
+    </p>
+    <% if(user === 'admin') { %>
+      <p><a href='/new_event'>Add New Event</a></p>
+    <% } %>
+  </div>
+  <div class='centerer'>
+    <div class='event-container'>
+      <% if(events) { %>
+        <% events.forEach((event) => { %>
+          <div class='listed-event' id='<%= event.EventName %>'>
+            <a href='/events/<%= event.EventName %>'><%= event.EventName %></a>
+            <p>Starts: <%= event.EventStart.toDateString() %></p>
+            <p>Ends: <%= event.EventEnd.toDateString() %></p>
+            <p>Location: <%= event.EventLocation %></p>
+            <p class='organiser-text' id='organiser-text-<%= event.EventName %>'>Organisers:</p>
+            <p class='organisers' id='organisers-<%= event.EventName %>'></p>
+            <% if (user) { %>
+              <button class='join-or-leave-button' id='join-or-leave-button-<%= event.EventName %>'></button>
+            <% } %>
+            <p class='error-handler' id='error-handler-<%= event.EventName %>'></p>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+  </div>
+  <div>
+    <% if(response) { %>
+      <p><%= response %></p>
+    <% } %>
+  </div>
+</body>
+<script src='index.js'></script>
+</html>

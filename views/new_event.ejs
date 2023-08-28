@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Event organisers</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <p><a href="/">Event Browser</a></p>
+  <div class="centerer">
+    <div>
+      <form action="/add_new_event" method="post" name="new-event-form">
+        <p>Event name: <input type="text" name="event-name" required/> </p>
+        <p>Starts: <input type="date" name="event-start" id="start-date" required/> </p>
+        <p id="start-date-error">Your event should start at least tomorow!</p>
+        <p>Ends: <input type="date" name="event-end" id="end-date" required/> </p>
+        <p id="end-date-error">Your event should start before it ends!</p>
+        <p>Location <input type="text" name="event-location" required/> </p>
+        <p>Organisers:
+          <textarea name="organisers" id="organisers-textarea" cols="30" rows="10">Names of the organisers on separate lines</textarea>
+        </p>
+        <p><input type="submit" id="save-event-button" value="Save event"></p>
+      </form>
+    </div>
+  </div>
+  <div>
+    <% if(response !== undefined) { %>
+      <p><%= response %></p>
+    <% } %>
+  </div>
+</body>
+<script src='/new_event.js'></script>
+</html>

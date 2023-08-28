@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>
+    <% if (event) { %>
+      <%= event.EventName %>
+    <% } else { %>
+      Event
+    <% } %>
+  </title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <p><a href='/'>Event browser</a></p>
+  <p><a href='/new_task/<%= event.EventName %>'>New Task</a></p>
+  <p><a href='/progress_report/<%= event.EventName %>'>Progess Report</a></p>
+  <div class='centerer'>
+    <div>
+      <div class='event'>
+        <% if (event) { %>
+          <p>Name: <%= event.EventName %></p>
+          <p>Starts: <%= event.EventStart.toDateString() %></p>
+          <p>Ends: <%= event.EventEnd.toDateString() %></p>
+          <p>Location: <%= event.EventLocation %></p>
+        <% } else {%>
+          <p>Name:</p>
+          <p>Starts:</p>
+          <p>Ends:</p>
+          <p>Location:</p>
+        <% } %>
+      </div>
+      
+      <p>Organisers:</p>
+      <div class='organiser-list'>
+        <% if(organisers) { %>
+          <% const isOrganiser = organisers.some((organiser) => organiser.Username === user ? user : '') %>
+          <% if (isOrganiser) { %>
+            <% organisers.forEach((organiser) => { %>
+              <p><a href='/tasks/<%= event.EventName %>/<%= organiser.Username %>'><%= organiser.Username %></a></p>
+            <% }) %>
+          <% } else { %>
+            <% organisers.forEach((organiser) => { %>
+              <p><%= organiser.Username %></p>
+            <% }) %>
+          <% } %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <p>Photos:</p>
+      <div class='photo-list'>
+        <% if(photos) { %>
+          <% photos.forEach((photo) => { %>
+            <img src='/photos/<%= photo.path %>' alt='photo'>
+          <% }) %>
+        <% } %>
+      </div>
+    
+      <% if (user) { %>
+        <div id='photo-upload' >
+          <form action='/photo_upload/<%= event.EventID %>/<%= user %>' method='post' enctype='multipart/form-data'>
+            <p><input type='file' name='photo' accept='.jpeg, .png, .jpg' required></p>
+            <p><input type='submit' value='Upload' id='upload-button'></p>
+          </form>
+        </div>
+      <% } %>
+    
+      <div>
+        <% if(response) { %>
+          <p><%= response %></p>
+        <% } %>
+      </div>
+</body>
+</html>

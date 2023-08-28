@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Progress Report</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <p><a href='/events/<%= event %>'>Back To The Event</a></p>
+  <div class="centerer">
+    <div>
+      <table>
+        <tr>
+          <th>TaskName</th>
+          <th>Posted</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Done</th>
+          <th>Username</th>
+        </tr>
+        <% if (tasks) { %>
+          <% tasks.forEach((task) => { %>
+            <tr>
+              <td> <%= task.TaskName %> </td>
+              <td> <%= task.Posted.toDateString() %> </td>
+              <td> <%= task.Deadline.toDateString() %> </td>
+              <td> <%= task.Status %> </td>
+              <td> <%= task.Done %> </td>
+              <td> <%= task.Username %> </td>
+          </tr>
+          <% }); %>
+        <% } %>
+      </table>
+    </div>
+  </div>
+  <p><%= response ? response : '' %></p>
+</body>
+</html>

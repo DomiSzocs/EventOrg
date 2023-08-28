@@ -1,0 +1,103 @@
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+#start-date-error {
+  display: none;
+}
+
+#end-date-error {
+  display: none;
+}
+
+#save-event-button {
+  display: none;
+}
+
+#join-id-error {
+  display: none;
+}
+
+img {
+  width: 25vw;
+  height: auto;
+}
+
+.listed-event, .event {
+  background-color: antiquewhite;
+  border: 1px solid;
+  width: 50vw;
+  display: block;
+}
+
+.organiser-list {
+  width: 50vw;
+  border: solid;
+  background-color: antiquewhite;
+}
+
+.join-or-leave-button {
+  display: none;
+}
+
+.organiser-text {
+  display: none;
+}
+
+.organisers {
+  display: none;
+}
+
+.join-or-leave-button {
+  display: none;
+}
+
+.error-handler {
+  display: none;
+}
+
+nav {
+  height: 10vh;
+}
+
+#logged-in {
+  text-align: right;
+}
+
+.login-buttons {
+  float: right;
+  display: block;
+  margin-left: 5px;
+}
+
+#login-box-wrapper {
+  display: none; /*flex*/
+  justify-content: flex-end;
+}
+
+#login-box {
+  border: solid 1px;
+}
+
+#login-error {
+  display: none;
+}
+
+#deadline-error {
+  display: none;
+}
+
+#save-task-button {
+  display: none;
+}
+
+td {
+  border: 1px solid black;
+}
+
+.centerer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

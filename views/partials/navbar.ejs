@@ -1,0 +1,15 @@
+<nav id='navbar'>
+  <div>
+    <p id='logged-in'> <%= user ? user : 'Guest' %> </p>
+  </div>
+  <div>
+    <p>
+      <% if (user) { %>
+        <a href='/signout' class="login-buttons"> Sign out </a>
+      <% } else { %>
+        <a href='/auth/in' class="login-buttons"> Sign In </a>
+        <a href='/auth/up' class="login-buttons"> Sign Up </a>
+      <% } %>
+    </p>
+  </div>
+</nav>

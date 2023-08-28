@@ -1,0 +1,58 @@
+#bekuld {
+    display: none;
+}
+
+footer {
+    padding-top: 7.5vh;
+    max-height: 15vh;
+    min-height: 10vh;
+    background: #ffeebb;
+}
+
+form{
+    margin-left: 30vw;
+    margin-top: 20vh;
+}
+
+#also-div {
+    height: 200px;
+    width: 30ch;
+    margin: 100px;
+    background-color: bisque;
+    overflow: hidden;
+    position: relative;
+}
+
+#gorulo-szoveg {
+    position: absolute;
+    text-align: left;
+    margin-right: 30ch;
+    white-space: nowrap;
+}
+
+.animatedClass {
+    animation-name: toTheLeft;
+    animation-play-state: running;
+    animation-duration: 20s;
+    animation-iteration-count: infinite; 
+}
+
+@keyframes toTheRight {
+    from {margin-left: -50ch;}
+    to {margin-left: 30ch}
+}
+
+@keyframes toTheLeft {
+    from {margin-left: 30ch;}
+    to {margin-left: -50ch;}
+}
+
+#email-validator {
+    display: none;
+    background-color: red;
+}
+
+#url-validator {
+    display: none;
+    background-color: red;
+}

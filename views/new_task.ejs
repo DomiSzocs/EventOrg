@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang='en'>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Add new task</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <p><a href='/events/<%= event %>'>Back To The Event</a></p>
+  <div class="centerer">
+    <div>
+      <form action='/add_new_task/<%= event %>' method='post'>
+        <p>Task Name: <input type='text' name='tname' required></p>
+        <p>Deadline: <input type='date' name='deadline' id="deadline" required></p>
+        <p id='deadline-error'>The deadline should be at least tomorow!</p>
+        <p>Username: <input type='text' name='uname' required></p>
+        <p><input type='submit' value='Save Task' id='save-task-button'></p>
+      </form>
+    </div>
+  </div>
+  <p><%= response ? response : '' %></p>
+</body>
+<script src='/new_task.js'></script>
+</html>
